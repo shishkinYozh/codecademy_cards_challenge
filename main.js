@@ -24,6 +24,14 @@ const batch = [valid1, valid2, valid3, valid4, valid5, invalid1, invalid2, inval
 
 
 // Add your functions below:
+
+/*
+1.
+Create a function, validateCred() that has a parameter of an array. 
+The purpose of validateCred() is to return true when an array contains digits of a valid credit card number 
+and false when it is invalid. 
+This function should NOT mutate the values of the original array.
+*/
 const validateCred = array => {
   const newArr = array.map((item, index) => {
     if((index + 1) % 2 !== 0) {
@@ -36,10 +44,22 @@ const validateCred = array => {
   return luhnSum%10 === 0
 }
 
+/*
+2.
+Create another function, findInvalidCards() that has one parameter for a nested array of credit card numbers. 
+The role of findInvalidCards() is to check through the nested array for which numbers are invalid, 
+and return another nested array of invalid cards.
+*/
 const findInvalidCards = arrayOfCards => {
   return arrayOfCards.filter(item => !validateCred(item))
 }
 
+/*
+3.
+After finding all the invalid credit card numbers, it’s also necessary to identify the credit card companies 
+that have possibly issued these faulty numbers. Create a function, idInvalidCardCompanies() that has one parameter 
+for a nested array of invalid numbers and returns an array of companies.
+*/
 const idInvalidCardCompanies = invalidCardsArr => {
   const companysCards = {
     3: 'Amex (American Express)',
